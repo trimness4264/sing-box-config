@@ -1,0 +1,14 @@
+{
+  "name": "sing-box-config",
+  "description": "Shared macOS/iOS sing-box configuration template with optional Forgejo deployment",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "deploy": "npm run build && node ci/deploy.mjs"
+  }
+}

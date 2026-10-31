@@ -1,0 +1,23 @@
+log:
+  level: info
+
+runner:
+  capacity: 1
+  timeout: 10m
+  shutdown_timeout: 1m
+  insecure: false
+  labels:
+    - sing-box-config:host
+
+cache:
+  enabled: false
+
+host:
+  workdir_parent: /var/lib/forgejo-runner/work
+
+server:
+  connections:
+    sing-box-config:
+      url: https://git.example.com/
+      uuid: REPLACE_WITH_RUNNER_UUID
+      token: REPLACE_WITH_RUNNER_TOKEN

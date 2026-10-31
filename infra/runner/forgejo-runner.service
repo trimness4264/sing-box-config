@@ -1,0 +1,26 @@
+[Unit]
+Description=Forgejo Runner for sing-box-config
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=forgejo-runner
+Group=forgejo-runner
+StateDirectory=forgejo-runner
+StateDirectoryMode=0700
+WorkingDirectory=/var/lib/forgejo-runner
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/local/bin/forgejo-runner daemon --config /etc/forgejo-runner/config.yml
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=90s
+KillMode=mixed
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target
